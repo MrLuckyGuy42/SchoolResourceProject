@@ -19,25 +19,25 @@
 
 
 .Topborder {
-        height: 100pt;
-        text-align: center;
-        background-color: #c1c1c1;
-        color: white;
-        box-shadow: 0px 5px 6px black;
-        width: 100vw;
-        display: flex;
-        align-items: center; 
-        justify-content: space-around;
-        padding-left: 0;
-        padding-top: 0;
+  height: 100pt;
+  text-align: center;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  box-shadow: 0px 5px 50px black;
+  width: 100vw;
+  display: flex;
+  align-items: center; 
+  justify-content: space-around;
+  padding-left: 0px;
+  padding-top: 0px;
+  border: 0px;
+  margin: 0px;
       }
    
+
+.body {
+  padding-top: 2rem;
+}
     
 
 
-
-.body {
-    background-color: #b1b1b1; /* Darker tab color */
-    width: 100vw; /* Full width of the viewport */
-    height: 50px; /* Height of the tab */
-}
