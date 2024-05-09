@@ -38,7 +38,23 @@
 .Body {
   padding-top: 2rem;
   text-align: center;
+  color: #ffffff;
 }
+
+.Login {
+  justify-content: space-around;
+  display: flex !important;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5); /* Adjust shadow as needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+
     
 
 
