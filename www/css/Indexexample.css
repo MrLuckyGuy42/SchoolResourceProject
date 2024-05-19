@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif; /* What the font of the text is*/
+    background-color: #e4cfcf; /* Color of the body background */
+    margin: 0;
+    padding: 20px;
+}
+
+p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6; /* The height of the time*/
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #555;
+    font-size: 20px;/* Font size */
+    margin-bottom: 10px;/* Margin below */
+}
+
+h3 {
+    color: #777; /* The color of the text */
+    font-size: 18px; /* Adjust the size of the font */
+    margin-bottom: 10px;/* Margin below*/
+}
+
+a {
+    color: #007bff; /*Changes the color of the font */
+    text-decoration: none; /* Allows you to make the text to your style, as shown bellow there are a vairty of decorations */
+    text-decoration: line-through; 
+    text-decoration: double;
+}
+
+img {
+    max-width: 100%; /* Maximum width of image. in this case it is able to takeup the whole width of the screem */
+    height: auto;  /* Similar to width but wiith height, auto simply means it will auto adjust to keep orignal aspect ratio in relation to width*/
+    margin-bottom: 20px; /*Similar to padding has higher priority*/
+}
+
+ul, ol {
+    margin-bottom: 20px; /*Similar to padding has higher priority*/
+    margin-left: 20px; /*Similar to padding has higher priority*/
+}
+
+li {
+    margin-bottom: 5px; /*Similar to padding has higher priority will add distance between list items*/
+}
+
+div {
+    background-color: #fff; /*Changes the background color*/
+    padding: 20px;/*Creates space around, example is the words on this website have 20px worth of space around when you add padding */
+    border-radius: 50px; /*The roundness of the corners */
+    box-shadow: 10px/*Horizontal offset*/ 5px /*Vertical offset */ 10px /*The radius that the shadow takes to blur*/ /* Color*/rgba(0, 0, 0, 0.1);/*Creates a fading shadow around the whatever you want, in this case the div. */
+    margin-bottom: 10px; /*Similar to padding has higher priority*/
+}
+
+/* The different measurements you can use instead of example 10px are, 10rem, 10%, 10vh, 10vw, */
+/* 10em, 10in, 10cm, 10mm, 10pt, 1.5pc, */
+.textalign {
+    text-align: center;
+    justify-content: space-around;
+    justify-self: auto;
+    justify-items: left;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: #007bff;
+    position: relative;
+    animation: moveRight 10s ease-in-out infinite alternate; /* Applies the animation */
+}
+
+@keyframes moveRight { /* example of a very simple animation */
+    0% {
+        left: 0; /* Start position */
+    }
+    100% {
+        left: calc(100% - 100px); /* End position */
+    }
+}
+
+.box {
+    padding-top: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: #007bff;
+    transition: transform 0.3s ease; /* Applies the transition effect */
+}
+
+.box:hover {
+    transform: scale(1.2); /* Scales the box up by 20% on mouse hover */
+}
