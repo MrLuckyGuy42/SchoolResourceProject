@@ -48,7 +48,20 @@
         </div>
     </div>
     <div class="Login">
-        <h1>Login</h1>
+        <div class="container">
+            <form action="POST" class="form" id="login">
+                <H1 class="form__title">Login</H1>
+                <div class="form__message form__message--error">Incorrect username/Password combination.</div>
+                <div class="form__Input-group">
+                    <input type="text" class="form__input" autofocus placeholder="username or email">
+                </div>
+                <div class="form__Input-group">
+                    <input type="Password" class="form__input" autofocus placeholder="Password">
+                </div>
+                <button class="form_button">Login</button>
+            </form>
+        </div>
+
     </div>
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
