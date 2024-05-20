@@ -19,7 +19,28 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
+
+function setFormMessage(formElement, type, message) {
+    const messageElement = formElement.querySelector(".form__message");
+
+    messageElement.textContent = message;
+    messageElement.classList.remove("form__message--success", "form__message-error");
+    messageElement.classList.add('form__message--${type}');
+}
+
+
 document.addEventListener('deviceready', onDeviceReady, false);
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.querySelector("#Login")
+
+    loginForm.addEventListener("submit", e => {
+        e.preventDefault();
+
+
+        setFormMessage(loginForm, "error", "Invalid username/passowrd combination");
+    });
+
+})
 
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!

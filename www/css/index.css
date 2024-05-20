@@ -92,14 +92,20 @@
   border-radius: var(--border-radius);
   border: 1px solid #dddddd;
   outline: none;
-  background: #eeeeeeee;
+  background: #dbdbdbee;
   transition: transform 0.3s ease;
 }
 
 .form_button:hover {
-  transform: scale(1.2); /* Scales the box up by 20% on mouse hover */
+  transform: scale(1.1); /* Scales the box up by 20% on mouse hover */
+  background: #ebebebee;
+
+ 
 }
 
+.form_button:active {
+transform: scale(0.98);
+}
 
 .form > *:first-child {
   margin-top: 0;
@@ -121,4 +127,10 @@ color: var(--color-success);
 
 .form__message--error {
   color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+body {
+  --color-error: #cc3333
+  --color-success: #4bb544
 }
