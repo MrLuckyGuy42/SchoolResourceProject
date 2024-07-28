@@ -19,5 +19,25 @@
     "platforms": [
       "android"
     ]
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
+
+{
+  "name": "schoolresourceproject",
+  "version": "1.0.0",
+  "main": "js/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node js/server.js",
+    "dev": "nodemon js/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "bcrypt": "^5.1.0",
+    "@supabase/supabase-js": "^2.0.0",
+    "dotenv": "^10.0.0"
   }
 }

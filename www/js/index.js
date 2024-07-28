@@ -57,31 +57,40 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-const { createClient } = require('@supabase/supabase-js');
-require('dotenv').config();
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('login-form');
+    const errorElement = document.getElementById('login-error');
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevent the default form submission
 
-// Example route
-const express = require('express');
-const app = express();
-app.use(express.json());
+        const formData = new FormData(form);
+        const username = formData.get('username');
+        const password = formData.get('password');
 
-app.get('/data', async (req, res) => {
-    const { data, error } = await supabase
-        .from('your_table_name')
-        .select('*');
+        try {
+            const response = await fetch('js/server.js', { // Replace with your actual API endpoint
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            });
 
-    if (error) {
-        res.status(500).send(error.message);
-    } else {
-        res.status(200).json(data);
-    }
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+            if (response.ok) {
+                const data = await response.json();
+                // Handle successful login (e.g., redirect or display a success message)
+                window.location.href = '/dashboard'; // Redirect to a dashboard or home page
+            } else {
+                // Handle errors (e.g., display an error message)
+                const error = await response.text();
+                errorElement.textContent = error;
+                errorElement.style.display = 'block';
+            }
+        } catch (error) {
+            // Handle network errors
+            errorElement.textContent = 'Network error occurred.';
+            errorElement.style.display = 'block';
+        }
+    });
 });
