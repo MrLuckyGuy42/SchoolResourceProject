@@ -48,11 +48,29 @@
             <h1> Kaipara College <h1/>
         </div>
     </div>
-    <div class="LoginLink"><a href="Login.html">Link</a</div>
-    <div class="Body"> 
-      <P></P>
+    <div class="Login">
+        <div class="container">
+            <form action="POST" class="form" id="login">
+                <h3 class="form__title" >Menu</h3>
+                <button class="Main_button" id="loginButton">Login</button>
+                <button class="Main_button">Map</button>
+                <button class="Main_button">Notices</button>
+                <button class="Main_button">NCEA results</button>
+                <button class="Main_button">Deadlines</button>
+                <button class="Main_button">Settings</button>
+            </form>
+        </div>
+
     </div>
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("loginButton").onclick = function() {
+                window.location.href = "Login.html";
+            };
+        });
+    </script>
 </body>
 </html>

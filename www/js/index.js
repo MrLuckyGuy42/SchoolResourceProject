@@ -49,3 +49,39 @@ function onDeviceReady() {
     document.getElementById('deviceready').classList.add('ready');
 }
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("loginButton").onclick = function() {
+        window.location.href = "Login.html";
+    };
+});
+
+
+const { createClient } = require('@supabase/supabase-js');
+require('dotenv').config();
+
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+// Example route
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+app.get('/data', async (req, res) => {
+    const { data, error } = await supabase
+        .from('your_table_name')
+        .select('*');
+
+    if (error) {
+        res.status(500).send(error.message);
+    } else {
+        res.status(200).json(data);
+    }
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});

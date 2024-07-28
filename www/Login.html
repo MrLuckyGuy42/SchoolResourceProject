@@ -35,35 +35,54 @@
     <meta name="color-scheme" content="light ">
     <link rel="stylesheet" href="css/index.css">
     <title>Kaipara College</title>
-    <style>
-        body {
-            margin: 0; /* Override the margin to remove it */
-        }
-    </style>
-</head>
+    
+<html>
 <body>
     <div>
         <div class="Topborder">
-            <img class="ImageLogo" src="img/kaipara_college_logo.jpg">
-            <h1> Kaipara College <h1/>
+            <img class="ImageLogo" src="img/kaipara_college_logo.jpg" alt="Kaipara College Logo">
+            <h1> Kaipara College </h1>
         </div>
     </div>
     <div class="Login">
         <div class="container">
-            <form action="POST" class="form" id="login">
-                <H1 class="form__title">Login</H1>
-                <div class="form__message form__message--error">Incorrect username/Password combination.</div>
+            <form id="loginForm">
+                <h1 class="form__title">Login</h1>
+                <div class="form__message form__message--error" id="error-message">Incorrect username/Password combination.</div>
                 <div class="form__Input-group">
-                    <input type="text" class="form__input" autofocus placeholder="username or email">
+                    <input type="text" class="form__input" id="username" placeholder="username or email">
                 </div>
                 <div class="form__Input-group">
-                    <input type="Password" class="form__input"  autofocus placeholder="Password">
+                    <input type="password" class="form__input" id="password" placeholder="Password">
                 </div>
-                <button class="form_button">Login</button>
+                <button type="button" class="form_button" onclick="login()">Login</button>
             </form>
         </div>
-
     </div>
+    <script>
+        async function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('arn:aws:resource-groups:ap-southeast-2:010928192497:group/SchoolResourceApp/09bphrvmv82cmftwhr9xml5z4w', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            const result = await response.text();
+
+            if (response.status === 200) {
+                alert(result);
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
 </body>
